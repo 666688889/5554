@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>欢迎使用TRC20检测系统</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>欢迎使用TRC20检测系统</h2>
+    <button onclick="connectWallet()">连接钱包</button>
+    <button onclick="redirectToTransfer()">转账测试</button>
+  </div>
+
+  <script>
+    let tronWeb;
+
+    async function connectWallet() {
+      if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+        tronWeb = window.tronWeb;
+        alert("钱包连接成功: " + tronWeb.defaultAddress.base58);
+      } else {
+        alert("请使用 imToken 或支持 TRON 的钱包打开此页面");
+      }
+    }
+
+    function redirectToTransfer() {
+      window.location.href = "test-transfer.html";
+    }
+  </script>
+</body>
+</html>
